@@ -21,10 +21,11 @@ public class Language extends AbstractEntity {
     @Column(name="language")
     private String language;
     @ManyToMany(mappedBy = "languages")
+    @JsonBackReference
     private Set<Movie> movie;
 
     @ManyToMany(mappedBy = "languages")
-
+    @JsonBackReference
     private Set<Series>series;
 
     public Language(String language) {

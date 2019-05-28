@@ -1,5 +1,6 @@
 package digitalproject.achimovies.Controller;
 
+import digitalproject.achimovies.Repository.MovieRepository;
 import digitalproject.achimovies.Service.UserService;
 import digitalproject.achimovies.data.DTO.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,12 @@ import javax.validation.Valid;
 public class UserController {
     @Autowired
     UserService userService;
+    @Autowired
+    MovieRepository movieRepository;
+
     @PostMapping("/register")
-    public ResponseEntity addUser(@Valid @RequestBody UserDto data){return userService.addUser(data);}
+    public ResponseEntity addUser(@Valid @RequestBody UserDto data){return userService.addUser(data);
+    }
+
 
 }

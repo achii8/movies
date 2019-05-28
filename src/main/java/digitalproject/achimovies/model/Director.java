@@ -4,10 +4,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,10 +23,10 @@ public class Director extends AbstractEntity{
     private boolean hasOscars;
 
     @OneToMany(mappedBy = "director")
+    @JsonBackReference
     private Set<Movie> movies=new HashSet<>();
 
-    @OneToMany(mappedBy = "director")
-
+    @OneToMany(mappedBy = "director",fetch = FetchType.EAGER)
     private Set<Series>Series;
 
     public Director() {

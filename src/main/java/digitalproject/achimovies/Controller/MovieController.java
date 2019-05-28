@@ -44,6 +44,7 @@ public class MovieController {
     @GetMapping("/read/{id}")
     private Movie read(@PathVariable("id") Long id) {
         Movie movie=movieRepository.getById(id);
+        movie.setDirector(movie.getDirector());
         if(movie!=null){
             return movie;
         }
@@ -60,6 +61,7 @@ public class MovieController {
         }
         return null;
     }
+
 
     @GetMapping("/language/{id}")
     private Set<Movie> getAllbyLanguges(@PathVariable("id") Language language){
@@ -143,7 +145,6 @@ public class MovieController {
         return null;
 
     }
-
 
 
 

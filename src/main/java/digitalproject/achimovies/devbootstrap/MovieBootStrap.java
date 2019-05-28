@@ -49,10 +49,10 @@ public class MovieBootStrap implements ApplicationListener<ContextRefreshedEvent
         genreRepository.saveAll(genres);
 
 
-        Movie movie=new Movie("avengers",2019,20,artists,dir,Country.France,languages,genres);
+        Movie movie=new Movie("avengers",2019,10,artists,dir,Country.USA,languages,genres);
         movieRepository.save(movie);
 
-        movieRepository.save(new Movie("achis cxovreba",2068,1000,artists,dir,Country.Georgia,languages,genres));
+        movieRepository.save(new Movie("Black swan",2013,10,artists,dir,Country.Georgia,languages,genres));
 
 
         Set<Artist>cast=new HashSet<>();

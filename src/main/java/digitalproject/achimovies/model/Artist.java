@@ -1,13 +1,11 @@
 package digitalproject.achimovies.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,12 +24,12 @@ public class Artist extends AbstractEntity {
     private boolean hasOscars;
 
 
-    @ManyToMany(mappedBy = "artists")
+    @ManyToMany(mappedBy = "artists",fetch = FetchType.EAGER)
     @JsonBackReference
     private Set<Movie>movies=new HashSet<>();
 
-    @ManyToMany(mappedBy = "artists")
-
+    @ManyToMany(mappedBy = "artists",fetch = FetchType.EAGER)
+    @JsonBackReference
     private Set<Series>series;
 
     public Artist(String artistFullName, int age, boolean hasOscars) {

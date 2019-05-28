@@ -24,7 +24,7 @@ public class Genre extends AbstractEntity {
     private Set<Movie> movies;
 
     @ManyToMany(mappedBy = "genres")
-
+    @JsonBackReference
     private Set<Series>series;
 
     public Genre() {

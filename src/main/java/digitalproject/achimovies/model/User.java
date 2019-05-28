@@ -1,9 +1,11 @@
 package digitalproject.achimovies.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -18,6 +20,7 @@ public class User extends AbstractEntity {
     private String username;
     @Column(name="password")
     private String password;
+
 
     public User() {
     }
